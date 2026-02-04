@@ -2,4 +2,5 @@
 
 Vincent Jared : vinjared@brandeis.edu
 Dat Dinh : datdinh@brandeis.edu
-Heidy Narjano : 
+Heidy Naranjo : heidynaranjo@brandeis.edu
+Isaac Park : isaacpark@brandeis.edu
