@@ -1,3 +1,2 @@
-# group-g
-### Vincent Jared
-### vinjared@brandeis.edu
+# group-g 
+### Vincent Jared: vinjared@brandeis.edu
