@@ -19,11 +19,11 @@ public class Game {
         this.supply = new ArrayList<>();
         initializeSupply();
         
-        player1 = new Player("Player 1");
-        player2 = new Player("Player 2");
+        player1 = new HumanPlayer();
+        player2 = new HumanPlayer();
         
-        setupPlayer(player1);
-        setupPlayer(player2);
+        setupPlayer((BasePlayer)player1);
+        setupPlayer((BasePlayer)player2);
     }
 
     private void initializeSupply() {
@@ -51,7 +51,7 @@ public class Game {
         }
     }
 
-    private void setupPlayer(Player player) {
+    private void setupPlayer(BasePlayer player) {
         // Give 7 Bitcoins and 3 Methods from supply
         int bitcoins = 0;
         int methods = 0;
@@ -95,13 +95,13 @@ public class Game {
 
     private void playTurn(Player player) {
         // Buy phase: play coins and buy a card
-        int coins = player.playCoins();
+        int coins = ((BasePlayer)player).playCoins();
         System.out.println(player.getName() + " has " + coins + " coins");
         
         // Simple strategy: buy the best card we can afford
         Card toBuy = selectCardToBuy(coins);
         if (toBuy != null) {
-            player.buyCard(toBuy);
+            ((BasePlayer)player).buyCard(toBuy);
             supply.remove(toBuy);
             if (toBuy.getName().equals("Framework")) {
                 frameworksRemaining--;
@@ -112,7 +112,7 @@ public class Game {
         }
         
         // Cleanup phase
-        player.endTurn();
+        ((BasePlayer)player).endTurn();
     }
 
     private Card selectCardToBuy(int coins) {
@@ -150,8 +150,8 @@ public class Game {
     }
 
     private void announceWinner() {
-        int p1APs = player1.calculateAPs();
-        int p2APs = player2.calculateAPs();
+        int p1APs = ((BasePlayer)player1).calculateAPs();
+        int p2APs = ((BasePlayer)player2).calculateAPs();
         
         System.out.println("\n=== GAME OVER ===");
         System.out.println(player1.getName() + " APs: " + p1APs);
