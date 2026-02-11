@@ -5,11 +5,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayerTest {
-    private Player player;
+    private BasePlayer player;
 
     @BeforeEach
     public void setUp() {
-        player = new Player("Test Player");
+        player = new BasePlayer("Test Player");
     }
 
     @Test

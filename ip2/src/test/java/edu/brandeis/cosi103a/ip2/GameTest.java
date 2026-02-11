@@ -24,8 +24,8 @@ public class GameTest {
         // Each player starts with 7 Bitcoins + 3 Methods = 10 cards total
         // 5 in hand, 5 in deck
         Player p1 = game.getPlayer1();
-        assertEquals(5, p1.getHand().size());
-        assertEquals(5, p1.getDeck().size());
+        assertEquals(5, ((BasePlayer)p1).getHand().size());
+        assertEquals(5, ((BasePlayer)p1).getDeck().size());
     }
 
     @Test
@@ -62,8 +62,8 @@ public class GameTest {
     @Test
     public void testStarterDeckAPs() {
         // Each player starts with 3 Methods (1 AP each) = 3 APs
-        assertEquals(3, game.getPlayer1().calculateAPs());
-        assertEquals(3, game.getPlayer2().calculateAPs());
+        assertEquals(3, ((BasePlayer)game.getPlayer1()).calculateAPs());
+        assertEquals(3, ((BasePlayer)game.getPlayer2()).calculateAPs());
     }
 }
 
